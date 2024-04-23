@@ -3,6 +3,7 @@ package cli;
 import cli.commands.get.GetPokeNameList;
 import cli.commands.status.GetPokeStatus;
 import cli.commands.hello.HelloCommand;
+import cli.commands.name.GetPokeName;
 
 public class CLI implements Runnable {
   private String[] args;
@@ -28,6 +29,11 @@ public class CLI implements Runnable {
       if (option != null && command.equals("get")) {
         int limit = Integer.parseInt(option);
         new GetPokeNameList(limit).run();
+      }
+
+      if (option != null && command.equals("name")) {
+        int number = Integer.parseInt(option);
+        new GetPokeName(number).run();
       }
       
       if (option != null && command.equals("status")) {

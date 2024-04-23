@@ -3,6 +3,7 @@ package cli;
 import cli.commands.get.GetPokeNameList;
 import cli.commands.status.GetPokeStatus;
 import cli.commands.hello.HelloCommand;
+import cli.commands.help.HelpCommand;
 
 public class CLI implements Runnable {
   private String[] args;
@@ -37,6 +38,10 @@ public class CLI implements Runnable {
       
       if (command.equals("hello")) {
         new HelloCommand().run();
+      }
+
+      if (command.equals("help")) {
+        new HelpCommand().run();
       }
     } catch (Exception e) {
       e.printStackTrace();

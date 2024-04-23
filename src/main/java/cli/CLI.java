@@ -3,6 +3,7 @@ package cli;
 import cli.commands.get.GetPokeNameList;
 import cli.commands.status.GetPokeStatus;
 import cli.commands.hello.HelloCommand;
+import cli.commands.help.HelpCommand;
 
 public class CLI implements Runnable {
   private String[] args;

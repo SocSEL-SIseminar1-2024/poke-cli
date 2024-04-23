@@ -18,7 +18,13 @@ public class GetPokeStatus implements Runnable {
     String res = fetcher.getResponse();
 
     // resからstatsを抜き出す
-    String[] stats = res.split("\"stats\":\\[")[1].split("\\]")[0].split("\\},\\{");
+    String[] stats = null; 
+    try {
+      stats = res.split("\"stats\":\\[")[1].split("\\]")[0].split("\\},\\{");
+    } catch (ArrayIndexOutOfBoundsException e) {
+      System.out.println("存在しないポケモンを参照しています");
+      System.exit(0);
+    }
 
     // 種族値を表示させる
     Logger.attention("Pokemon status for " + name + ":");

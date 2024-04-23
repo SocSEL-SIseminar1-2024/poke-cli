@@ -27,8 +27,8 @@ public class CLI implements Runnable {
       // コマンドごとに処理を分岐
       if (option != null && command.equals("get")) {
         int limit = Integer.parseInt(option);
-        if (limit > 1032) {
-          throw new Exception("1032以下の数字を入力してください");
+        if (limit > 1302) {
+          throw new Exception("1302以下の数字を入力してください");
         }else{
           new GetPokeNameList(limit).run();
         }

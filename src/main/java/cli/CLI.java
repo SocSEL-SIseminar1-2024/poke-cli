@@ -18,10 +18,18 @@ public class CLI implements Runnable {
       String command = args[0];
       // オプション格納(poke get 10なら 10)
       String option = null;
+      String from = null;
+      String to = null;
 
       // オプションが存在する時だけ変数に入れる
       if (args.length == 2) {
         option = args[1];
+      }
+
+      // オプションが三つ存在する時変数に入れる
+      if (args.length == 3) {
+        from = args[1];
+        to = args[2];
       }
 
       // コマンドごとに処理を分岐
@@ -30,6 +38,12 @@ public class CLI implements Runnable {
         new GetPokeNameList(limit).run();
       }
       
+      if (from != null && to != null && command.equals("get")) {
+        int fromInt = Integer.parseInt(from);
+        int toInt = Integer.parseInt(to);
+        new GetPokeNameList(fromInt, toInt).run();
+      }
+
       if (option != null && command.equals("status")) {
         String name = option;
         new GetPokeStatus(name).run();
